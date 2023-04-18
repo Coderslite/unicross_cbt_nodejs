@@ -17,7 +17,7 @@ export async function getQuestions(req,res){
 export async function createQuestion(req,res){
 const {question,options,answer} = req.body;
 try {
-    const question = await Question.insertMany(data).then(()=>{
+    const question = await Question.insertMany(req.body).then(()=>{
         res.json({
             "status":true,
             "msg":"inserted",
