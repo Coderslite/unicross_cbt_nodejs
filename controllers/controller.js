@@ -49,11 +49,6 @@ export async function deleteOneQuestion(req,res){
                 "status":true,
                 "message":"Question deleted"
             });
-        }).catch(err=>{
-            res.status(500).send({
-                "status":false,
-                "message":"something went wrong",
-            })
         })
     } catch (error) {
         res.json({
@@ -70,11 +65,6 @@ export async function getOneQuestion(req,res){
             res.status(200).send({
                 "status":true,
                 "data":question,
-            }).catch(err=>{
-                res.status(500).send({
-                    "status":false,
-                    "message":"something went wrong",
-                })
             })
         })
     } catch (error) {
