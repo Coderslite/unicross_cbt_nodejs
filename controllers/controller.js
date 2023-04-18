@@ -15,16 +15,16 @@ export async function getQuestions(req,res){
 
 
 export async function createQuestion(req,res){
-const {question,options,answer} = req.body;
+const {question,options,answer,type} = req.body;
 try {
-    const question = await Question.insertMany(req.body).then(()=>{
-        res.json({
-            "status":true,
-            "msg":"inserted",
-        })
-    })
-} catch (error) {
+   await Question.insertMany(req.body).then(()=>{
     res.json({
+        "status":true,
+        "msg":"inserted",
+    })
+   })
+} catch (error) {
+    res.status(500).send({
         "status":false,
         "message":"something went wrong",
     })
