@@ -15,7 +15,7 @@ export async function getQuestions(req,res){
 
 
 export async function createQuestion(req,res){
-const {question,options,answer,type} = req.body;
+const {question,options,answer,type,seconds} = req.body;
 try {
    await Question.insertMany(req.body).then(()=>{
     res.json({
